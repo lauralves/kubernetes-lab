@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels: 
+    app: nginxlab
+spec:
+  containers:
+  - name: nginx
+    image: lauracode/nginxlab:1.4
+    ports:
+    - containerPort: 80
