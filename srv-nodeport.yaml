@@ -4,7 +4,7 @@ metadata:
   name: nginx-srv-lab-nodeport
 spec:
   selector:
-    app: nginxlab
+    app: nginx-lab-pod
   ports:
     - port: 80
       targetPort: 80

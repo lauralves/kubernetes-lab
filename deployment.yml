@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-lab-deployment
+  labels:
+    app: nginx-lab-pod   
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-lab-pod 
+  template:
+    metadata:
+      labels:
+        app: nginx-lab-pod  
+    spec:
+      containers:
+      - name: nginx
+        image: lauracode/nginxlab:1.4
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: nginx-data
+            mountPath: /data
+
+      volumes:
+        - name: nginx-data
+          persistentVolumeClaim:
+            claimName: nginx-pvc
