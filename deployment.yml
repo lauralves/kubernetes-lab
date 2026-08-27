@@ -22,7 +22,12 @@ spec:
         volumeMounts:
           - name: nginx-data
             mountPath: /data
-
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
       volumes:
         - name: nginx-data
           persistentVolumeClaim:
