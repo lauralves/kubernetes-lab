@@ -19,12 +19,17 @@ spec:
         image: lauracode/nginxlab:1.4
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
         volumeMounts:
           - name: nginx-data
             mountPath: /data
         livenessProbe:
           httpGet:
-            path: /health
+            path: /
             port: 80
           initialDelaySeconds: 5
           periodSeconds: 10
