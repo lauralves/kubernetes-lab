@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: lauracode/nginxlab:1.4
+        image: lauracode/meow-ops:latest
         ports:
         - containerPort: 80
         resources:
